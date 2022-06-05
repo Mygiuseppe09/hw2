@@ -1,0 +1,225 @@
+body {
+    background-color: rgba(100, 149, 237, 0.3);
+    margin: 0;
+    color: white;
+}
+
+.nav__right {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* pulsante impostazioni */
+.nav__right .icon_container {
+    margin-right: -50px;
+    width: 50px;
+    height: 50px;
+}
+.nav__right img {
+    transition: transform .4s ease-in-out;
+} .nav__right img:hover {
+      transform: rotate(360deg);
+  }
+
+#logoutButton {
+    margin-left: 50px;
+}
+
+#manageProfileButton {
+    background-color: black;
+    width: 180px;
+    text-align: right;
+}
+
+.home_container {
+    margin: 50px 50px 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.profile {
+    position: sticky;
+    top: 40px;
+    background-color: black;
+    padding: 10px;
+    border-radius: 50px;
+    margin-bottom: 10px;
+}
+
+.rounded_image_container {
+    margin: 40px auto 0 auto;
+}
+
+.user_informations {
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.user_informations div {
+    margin: 15px;
+}
+
+.feed {
+    background-color: rgba(114, 161, 245, 0.5);
+    border-radius: 50px;
+    padding: 0 20px;
+    width: 400px;
+    flex-grow: 1;
+    margin: 0 15px 10px 35px;
+}
+
+.post {
+    padding: 20px;
+    background-color: black;
+    border-radius: 30px;
+    margin: 30px 10px;
+}
+
+.post__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.post__informations {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* like Button CONTAINER */
+.post .icon_container {
+    height: 50px;
+    width: 50px;
+}
+
+.post img {
+    object-fit: contain;
+}
+
+.post div.post__avatar {
+    height: 70px;
+    width: 70px;
+}
+
+.home_container__right {
+    overflow-y: scroll;
+    position: sticky;
+    top: 40px;
+    width: 340px;
+    margin-bottom: 5px;
+
+    max-height: 95vh;
+
+} .home_container__right::-webkit-scrollbar {
+    display: none;
+  }
+
+.places_visited_by_logged_user {
+    background-color: black;
+    border-radius: 50px;
+    width: border-box;
+    margin: 0 0 20px 20px;
+    padding: 1px 0 20px 0;
+    max-height: 500px;
+    overflow-y: scroll;
+} .places_visited_by_logged_user::-webkit-scrollbar {
+      display: none;
+  }
+
+.list_item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 50px;
+    height: 40px;
+}
+
+.list_item h4 {
+    margin-left: 10px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.search_users_by_cities {
+    background-color: black;
+    border-radius: 50px;
+    width: border-box;
+    margin: 20px 0 20px 20px;
+    padding: 1px 0 10px 0;
+    overflow-y: scroll;
+} .search_users_by_cities::-webkit-scrollbar {
+      display: none;
+  }
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form input{
+    margin: 10px auto;
+    border-radius: 50px;
+    height: 30px;
+    text-align: center;
+}
+
+#listUsers .icon_container {
+    height: 35px;
+    width: 35px;
+}
+
+#listUsers .list_item h4 {
+    flex-grow: 0;
+}
+
+#listUsers .list_item {
+    justify-content: center;
+    width: fit-content;
+}
+
+#listUsers {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#areThereMatchesFeedback {
+    padding: 20px;
+    margin: 20px;
+}
+
+
+/* i bottoni "CONTATTA" */
+#listUsers a {
+    font-size: 9px;
+    width: fit-content;
+    height: fit-content;
+}
+
+#new_post {
+    border-radius: 70px;
+}
+
+#userInfo {
+    color: white;
+    border: 5px solid cornflowerblue;
+    border-radius: 30px;
+    width: fit-content;
+    margin: 10px auto;
+    text-align: center;
+}
+
+#new_post {
+    font-size: 30px;
+    text-align: center;
+    display: block;
+    margin: 10px;
+    padding: 30px 10px;
+}
+
+

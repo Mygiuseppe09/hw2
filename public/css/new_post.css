@@ -1,0 +1,118 @@
+body {
+    background-color: rgba(100, 149, 237, 0.3);
+    margin: 0;
+    color: white;
+    overflow: hidden; /* impediamo lo scroll */
+}
+
+.video_background_container {
+    overflow: hidden;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.video_background_container video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.on_video {
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* contenitore che sta al centro */
+#formOutputContainer {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 100px;
+    border: 2px solid white;
+    width: 500px;
+    height: 580px;
+    margin-top: -100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* tasto invio */
+#submitButton {
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+}
+
+/* barra di inserimento testo */
+#inNewPostPlace {
+    width: 300px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: transparent;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+/* scritta soprastante */
+#placesResults {
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 25px;
+    margin: 20px;
+}
+
+/* contenitori dei nomi dei luoghi */
+#outputPlaces div {
+    margin-top: 10px;
+}
+
+a {
+    font-size: 20px;
+    color: white;
+}
+
+#API_attribution {
+    margin: 30px auto -30px auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    font-size: 20px;
+}
+
+img {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-bottom: -20px;
+}
+
+#isPostedFeedback {
+    border-radius: 30px;
+    height: 100px;
+    width: 300px;
+    margin: 40px;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 40px;
+}

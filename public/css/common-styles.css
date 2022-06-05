@@ -1,0 +1,305 @@
+html {
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    text-align: center;
+}
+
+.top_bottom_margin {margin: 20px auto;}
+
+a {text-decoration: none;}
+
+.button {
+    margin: 10px;
+    border: 2px solid white;
+    color: white;
+    font-weight: bold;
+    background-color: #629bff;
+    border-radius: 20px;
+      text-decoration: none;
+    padding: 5px 10px;
+}  .button:hover {
+    color: white;
+    background-color: darkslateblue;
+    border: 2px solid white;
+  }
+
+.overlay {
+    background: linear-gradient(0deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.2));
+    z-index: 2;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.rounded_image_container {
+    position: relative;
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+}
+
+.image_container {
+    position: relative;
+    height: 150px;
+    width: 150px;
+}
+
+.icon_container {
+    position: relative;
+    height: 20px;
+    width: 20px;
+}
+
+.image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.nav_container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    background-color: black;
+}
+
+.margin { margin: 15px 30px; }
+
+.center {
+    display: block;
+    margin: 0 auto;
+}
+
+.title { margin-top: 30px; }
+
+.hidden { display: none !important; }
+
+
+/* Da applicare a dei div */
+.success {
+    border: 5px solid greenyellow;
+    background-color: rgba(173, 255, 47, 0.1);
+    border-radius: 30px;
+}
+
+.error {
+    border: 5px solid red;
+    background-color: rgba(255, 0, 0, 0.1);
+    border-radius: 30px;
+}
+
+div.error {
+    border-radius: 0;
+    width: fit-content;
+    padding: 0 5px;
+    margin: 0 auto -60px auto;
+}
+
+
+/*******************************/
+
+.clickable {
+
+} .clickable:hover {
+    border-radius: 3px;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+  }
+
+
+.loader {
+    width: 120px;
+    height: 75px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 50px auto;
+}
+.loader span {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin: auto;
+}
+.ball {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: white;
+    animation: bounce .5s alternate infinite;
+}
+.ball:nth-child(2) {
+    animation-delay: .16s;
+}
+.ball:nth-child(3) {
+    animation-delay: .32s;
+}
+@keyframes bounce {
+    from {
+        transform: scaleX(1.25);
+    }
+    to {
+        transform: translateY(-50px) scaleX(1);
+    }
+}
+
+.text_align_center {
+    text-align: center;
+    font-size: 22px;
+}
+
+.close_button {
+    width: fit-content;
+    margin: 15px auto;
+    text-align: center;
+    background-color: red;
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-size: 20px;
+} .close_button:hover {
+        background-color: #a80707;
+        cursor: default;
+  }
+
+  .errorInput {
+      background-color: rgba(255, 0, 0, 0.1);
+      font-size: 12px;
+      font-weight: bold;
+      width: fit-content;
+      margin: -10px auto 15px auto;
+      text-align: center;
+      padding: 3px;
+  }
+
+.shake {
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+    transform: translate3d(0, 0, 0);
+    perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+}
+
+/************ FOOTER *********/
+footer {
+    padding: 10px 5px;
+    background-color: black;
+    margin: 0;
+}
+
+#footer_flex_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+#copyright {
+    text-align: center;
+    height: 30px;
+}
+
+@media (max-width: 500px) {
+    #footer_flex_container { display: block; }
+    .footer_text_style { font-size: 1.2rem; }
+    footer { margin-bottom: 120px; }
+}
+
+.likes_counter {
+    text-decoration: underline;
+} .likes_counter:hover {
+    cursor: pointer;
+  }
+
+.like_modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.likes_modal__contents {
+    border: 2px solid white;
+    background-color: black;
+    border-radius: 30px;
+    height: 500px;
+    width: 740px;
+    overflow-y: scroll;
+
+} .likes_modal__contents::-webkit-scrollbar {
+    display: none;
+  }
+
+.list_users_like {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.list_users_like .user {
+    border: 1px solid cornflowerblue;
+    background-color: rgba(100, 149, 237, 0.1);
+    border-radius: 20px;
+    width: 234px;
+    margin: 5px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.like_avatar_container {
+    height: 80px;
+    width: 80px;
+    margin: 2px auto;
+}
+
+
+
+#closeLikeModal {
+    height: 40px;
+    width: 40px;
+    margin: 3px 3px 0 auto;
+}
+
+.likes_modal__contents h3 {
+    margin-top: -10px;
+}
+
+#closeLikeModal img:hover {cursor: pointer;}
+
+.no_scroll {overflow-y: hidden;}
+
+
+
+
