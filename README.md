@@ -16,7 +16,7 @@ and obtaining as output all the users who have been there,
 
 # _Screenshots_:
 
-## INDEX
+### INDEX
 ![](screenshoots/index.jpg)
 
 
@@ -28,7 +28,7 @@ and obtaining as output all the users who have been there,
 
 ### LOGIN
 ![](screenshoots/login.jpg)
-## SIGNUP SERVER VALIDATION
+### SIGNUP SERVER VALIDATION
 ![](screenshoots/login_server_validation.jpg)
 
 
