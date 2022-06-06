@@ -43,7 +43,7 @@ Route::get('/new_post', [NewPostController::class, 'simpleView']);
 /****** LOGOUT ********/
 Route::get('/logout', function () {
     session() -> flush();
-    return view('login');
+    return redirect('login');
 });
 
 /***** FETCHES *******/
