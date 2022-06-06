@@ -289,7 +289,7 @@ function onUsersByPlaceJson(json) {
             listUsersContainer.innerHTML = '';
 
             for (let user of json) {
-                let username = user.user;
+                let username = user.username;
 
                 const userContainer = document.createElement('div');
                 userContainer.classList.add('list_item');
@@ -413,7 +413,7 @@ document.querySelector('#search_bar').addEventListener('submit',searchUsersByPla
 
 /* al click del pulsante impostazioni mandiamo l'utente loggato alla pagina di gestione profilo */
 document.querySelector('.nav__right .icon_container').addEventListener('click', () =>
-    window.location.href = 'manage_profile.php');
+    window.location.href = '/manage_profile');
 
 
 

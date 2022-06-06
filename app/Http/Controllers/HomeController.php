@@ -84,8 +84,6 @@ class HomeController extends Controller
          *********************************************************************************************/
         /** @var Place $place */
 
-        $array = array();
-
         $place = Place::query() -> where('name', 'like', $place_name .'%') -> first();
         return $place -> visits() -> where('username','!=', session('username')) -> get();
     }
