@@ -85,7 +85,9 @@ class HomeController extends Controller
         /** @var Place $place */
 
         $place = Place::query() -> where('name', 'like', $place_name .'%') -> first();
+        if ($place != null)
         return $place -> visits() -> where('username','!=', session('username')) -> get();
+        else return array(); // perchè lato js faccio un check sulla lunghezza del json
     }
 
     public function storeNewLike($postId) {
