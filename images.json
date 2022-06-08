@@ -1,0 +1,91 @@
+[{
+  "_id": {
+    "$oid": "62a08ad920b33eb6650e8352"
+  },
+  "postId": "1",
+  "images": [
+    "post_images/paris.jpg",
+    "post_images/paris2.jpg",
+    "post_images/paris3.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "62a096d720b33eb6650e8353"
+  },
+  "postId": "2",
+  "images": [
+    "post_images/rome1.jpg",
+    "post_images/rome2.jpg",
+    "post_images/rome3.jpg",
+    "post_images/rome4.jpeg"
+  ]
+},{
+  "_id": {
+    "$oid": "62a09e9720b33eb6650e8355"
+  },
+  "postId": "4",
+  "images": [
+    "post_images/marseille1.jpg",
+    "post_images/marseille2.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "62a0a01020b33eb6650e8356"
+  },
+  "postId": "5",
+  "images": [
+    "post_images/catania1.jpg",
+    "post_images/catania2.jpg",
+    "post_images/catania3.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "62a0a11920b33eb6650e8357"
+  },
+  "postId": "6",
+  "images": [
+    "post_images/ny1.jpg",
+    "post_images/ny2.jpg",
+    "post_images/ny3.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "62a0a18120b33eb6650e8358"
+  },
+  "postId": "7",
+  "images": [
+    "post_images/london1.jpg",
+    "post_images/london2.jpg",
+    "post_images/london3.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "62a0a22520b33eb6650e8359"
+  },
+  "postId": "8",
+  "images": [
+    "post_images/amestradm3.jpg",
+    "post_images/amsterdam-01.jpg",
+    "post_images/amsterdam-02.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "62a0a35320b33eb6650e835a"
+  },
+  "postId": "9",
+  "images": [
+    "post_images/santorini1.jpg",
+    "post_images/santorini2.jpg",
+    "post_images/santorini3.jpg"
+  ]
+},{
+  "_id": {
+    "$oid": "62a0af7220b33eb6650e835c"
+  },
+  "postId": "12",
+  "images": [
+    "post_images/miami1.jpg",
+    "post_images/miami2.jpg",
+    "post_images/miami3.jpg"
+  ]
+}]
