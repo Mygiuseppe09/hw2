@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Place;
 use App\Models\Post;
 use App\Models\User;
@@ -38,7 +39,13 @@ class NewPostController extends Controller
                 'user' => session('username'),
                 'place' => $place_id
             ])) // il post è stato salvato
-                return array('is_post_stored' => 'TRUE');
+            {
+                $postId = Post::query() -> where('user', session('username'))
+                    -> where('place', $place_id)
+                    -> value('id');
+                return array('is_post_stored' => 'TRUE', 'postId' => $postId);
+            }
+
             else
                 return array('is_post_stored' => 'FALSE');
         }
@@ -52,13 +59,48 @@ class NewPostController extends Controller
                     'user' => session('username'),
                     'place' => $place_id
                 ])) // il post è stato salvato
-                    return array('is_post_stored' => 'TRUE');
+                {
+                    $postId = Post::query() -> where('user', session('username'))
+                                            -> where('place', $place_id)
+                                            -> value('id');
+                    return array('is_post_stored' => 'TRUE', 'postId' => $postId);
+                }
                 else
                     return array('is_post_stored' => 'FALSE');
             }
             else
                 return array('is_post_stored' => 'FALSE');
         }
+    }
+
+    public function saveImages() {
+        /**********************************************************************************************
+            AGGIUNGE UN ELEMENTO ALLA COLLECTION IMAGES DEL DB NOSQL (MONGODB) CON ALL'INTERNO:
+                     * POSTID
+                     * ARRAY CONTENENTE L'URL DELLE IMMAGINI
+         *********************************************************************************************/
+        /* @var Image $new_item_in_collection */
+
+        $new_item_in_collection = Image::query() -> create([
+            'postId' => request('postId'),
+            'images' => array()
+        ]);
+
+        $target_files = array();
+        $x = 0;
+
+        foreach ($_FILES['images']['name'] as $image_name)
+            $target_files[] = 'post_images/' . basename($image_name);
+
+        foreach ($_FILES['images']['tmp_name'] as $image_old_path) {
+            move_uploaded_file($image_old_path, $target_files[$x]);
+            $x++;
+        }
+
+        $new_item_in_collection -> images = $target_files;
+        $new_item_in_collection -> save();
+
+        return redirect('/home');
     }
 
 }

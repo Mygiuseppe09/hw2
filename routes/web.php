@@ -39,6 +39,7 @@ Route::get('/manage_profile', [ManageProfileController::class, 'simpleView']);
 
 /***** NEW POST ****/
 Route::get('/new_post', [NewPostController::class, 'simpleView']);
+Route::post('/save_images', [NewPostController::class, 'saveImages']);
 
 /****** LOGOUT ********/
 Route::get('/logout', function () {
@@ -62,6 +63,8 @@ Route::get('/get_logged_user_posts', [ManageProfileController::class, 'getLogged
 Route::get('/delete_post/{postId}', [ManageProfileController::class, 'deletePost']);
 Route::get('/RoadGoatAPI/{place}', [NewPostController::class, 'RoadGoatAPI']);
 Route::get('/store_new_post/{id}/{name}', [NewPostController::class, 'storeNewPost']);
+
+
 
 
 

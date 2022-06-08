@@ -61,6 +61,5 @@
 
 @include('like_modal_view')
 @include('footer')
-
 </body>
 </html>

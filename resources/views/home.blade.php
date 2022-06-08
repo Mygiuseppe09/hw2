@@ -52,6 +52,28 @@
 
     <div class="feed">
         <!-- da generare dinamicamente -->
+
+        <!-- esempio:
+            <div class="post" id="postID14" data-id="14">
+            <div class="post__content">
+                <div class="icon_container post__avatar"><img class="image" src="icons/avatar.png"></div>
+                <h3>@Mygiuseppe09 ha vistitato: "Paris, France"</h3>
+                <div class="icon_container">
+                    <img class="image like_button" id="postID14" data-post-id="14" src="icons/liked.png">
+                </div>
+            </div>
+            <div class="post_images">
+                <div class="image_container"><img class="image"  src="post_images/paris.jpg"></div>
+                <div class="image_container"><img class="image"  src="post_images/paris2.jpg"></div>
+                <div class="image_container"><img class="image"  src="post_images/paris3.jpg"></div>
+            </div>
+            <div class="post__informations">
+                <p>2022-06-06 12:47:20</p>
+                <p class="likes_counter" data-post-id="14">Piace a 1 utenti</p>
+            </div>
+        </div>
+         -->
+
     </div>
 
     <div class="home_container__right">

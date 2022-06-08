@@ -43,6 +43,15 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'host' => '127.0.0.1',
+            'port' => '27017',
+            'database' => 'tripbook',
+            'username' => '',
+            'password' => ''
+        ],
+
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),

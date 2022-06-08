@@ -77,6 +77,7 @@ function onDeletePostJson(json) {
 
         setTimeout(() => {
             fetch('/get_logged_user_posts').then(onResponse).then(onPostsJson);
+            fetch("/get_logged_user_info").then(onResponse).then(onUserJson);
             document.querySelector('.deleteFeedback').classList.add('hidden');
             document.querySelector('#deletePostsButton').innerText = 'ELIMINA POST';
 
@@ -126,6 +127,20 @@ function onPostsJson(json) {
             const textPost = document.createElement('h4');
             textPost.innerText = '"' + post.place_name + '"';
 
+            // sezione relativa alle immagini allegate ai post
+            const imagesContainer = document.createElement('div');
+            imagesContainer.classList.add('post_images');
+            for (let image_url of post.images_urls) {
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('image_container');
+                const image = document.createElement('img');
+                image.classList.add('image');
+                image.src = image_url;
+
+                imageContainer.appendChild(image);
+                imagesContainer.appendChild(imageContainer);
+            }
+
             // elimina posts
             const deleteButton = document.createElement('a');
             deleteButton.classList.add('button');
@@ -147,9 +162,10 @@ function onPostsJson(json) {
 
             contentContainer.appendChild(textPost);
             infoPostContainer.appendChild(dateText);
+            infoPostContainer.appendChild(numberLikesText);
             postContainer.appendChild(contentContainer);
+            postContainer.appendChild(imagesContainer);
             postContainer.appendChild(infoPostContainer);
-            postContainer.appendChild(numberLikesText);
             postContainer.appendChild(deleteButton);
 
             feedSection.appendChild(postContainer);

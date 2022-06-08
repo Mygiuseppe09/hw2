@@ -162,6 +162,7 @@ function onBoolLikeJson(json) {
 }
 
 function onPostsJson(json) {
+    console.log(json);
     if (json.length === 0) {
         // allora non ci sono posts nel DataBase
         const boxError = document.createElement('div');
@@ -198,6 +199,21 @@ function onPostsJson(json) {
                     iconImg.src = 'icons/girl_avatar.png';
             const textPost = document.createElement('h3');
             textPost.innerText = '@' + post.user + ' ha vistitato: ' + '"' + post.name_place + '"';
+
+            // sezione relativa alle immagini allegate ai post
+            const imagesContainer = document.createElement('div');
+            imagesContainer.classList.add('post_images');
+            for (let image_url of post.images_urls) {
+                const imageContainer = document.createElement('div');
+                imageContainer.classList.add('image_container');
+                const image = document.createElement('img');
+                image.classList.add('image');
+                image.src = image_url;
+
+                imageContainer.appendChild(image);
+                imagesContainer.appendChild(imageContainer);
+            }
+
             const likeButtonContainer = document.createElement('div');
             likeButtonContainer.classList.add('icon_container');
             const likeButtonImg = document.createElement('img');
@@ -230,6 +246,7 @@ function onPostsJson(json) {
             infoPostContainer.appendChild(dateText);
             infoPostContainer.appendChild(numberLikesText);
             postContainer.appendChild(contentContainer);
+            postContainer.appendChild(imagesContainer);
             postContainer.appendChild(infoPostContainer);
 
             feedSection.appendChild(postContainer);

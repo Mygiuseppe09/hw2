@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Place;
 use App\Models\Post;
 use App\Models\User;
@@ -119,7 +120,7 @@ class HomeController extends Controller
         /** @var User $logged_user */
 
         $logged_user = User::query() -> where('username', session('username')) -> first();
-        return $logged_user -> visits() -> get();
+        return $logged_user -> visits() -> distinct('name') -> get();
     }
 
 
@@ -129,19 +130,27 @@ class HomeController extends Controller
                 n.b. Ritorna anche:
                 - il nome del luogo associato al corrispondente ID
                 - il sesso associato all'utente che l'ha postato (per stabilire l'avatar)
+                - gli url delle immagini associate, prese dal db MongoDB
          *********************************************************************************************/
         /** @var Post $posts */
 
         $posts_plus = array();
 
         $posts = Post::query() -> limit(10) -> orderBy('time','desc') -> get();
+
+
         if ($posts -> isNotEmpty())
             // ci sono posts nel db
             foreach ($posts as $post) {
+                $images_urls = Image::query()
+                    -> where('postId', strval($post -> id))
+                    -> value('images');
+
                 $place_name = $post -> places() -> value('name');
                 $user_gender = $post -> users() -> value('gender');
 
                 // aggiungiamo i nuovi campi
+                $post -> images_urls = $images_urls;
                 $post -> name_place = $place_name;
                 $post -> user_gender = $user_gender;
                 $posts_plus[] = $post;

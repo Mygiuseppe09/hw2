@@ -57,8 +57,17 @@ and obtaining as output all the users who have been there,
 ### SEARCH USERS BY NAME'S CITY
 ![](screenshoots/demo_search_users.gif)
 
-# DATABASE: MySQL
+# DATABASES: 
+
+## - MySQL
 
 ### DATABASE'S STRUCTURE (DIAGRAM)
 ![](db_diagram.png)
-### [LINK to SQL ](db_structure.sql)
+### [LINK to SQL](db_structure.sql)
+
+## - MongoDB
+### DATABASE'S STRUCTURE 
+![](screenshoots/MongoDB.jpg)
+### [LINK to JSON (to import) ](images.json)
+
+

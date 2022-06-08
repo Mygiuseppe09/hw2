@@ -222,4 +222,21 @@ form input{
     padding: 30px 10px;
 }
 
+.post_images {
+    display: flex;
+    overflow-x: scroll;
+} .post_images::-webkit-scrollbar {
+      display: none;
+  }
+
+.post_images .image_container {
+    height: 250px;
+    min-width: 250px;
+    margin: 10px;
+}
+
+.post_images img {
+    object-fit: cover;
+    border-radius: 20px;
+}
 

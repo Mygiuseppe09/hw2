@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Image;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -32,8 +33,15 @@ class ManageProfileController extends Controller
         if ($posts_db -> isNotEmpty()) {
             // l'utente ha pubblicato posts
             foreach ($posts_db as $post) {
+                $images_urls = Image::query()
+                    -> where('postId', strval($post -> id))
+                    -> value('images');
+
                 $place_name = $post -> places() -> value('name');
+
                 $post -> place_name = $place_name;
+                $post -> images_urls = $images_urls;
+
                 $posts[] = $post;
             }
         }
@@ -42,7 +50,9 @@ class ManageProfileController extends Controller
 
     public function deletePost($postId) {
         /**********************************************************************************************
-                    ELIMINA DAL DB UNA RIGA DALLA TABELLA posts e ne ritorna l'id
+                    * ELIMINA DAL DB MySQL UNA RIGA DALLA TABELLA posts
+                    * ELIMINA DAL DB MongoDB
+                    * ELIMINA LE IMMAGINI SALVATE SUL SERVER
          *********************************************************************************************/
 
         $rows_deleted = Post::query()
@@ -50,7 +60,21 @@ class ManageProfileController extends Controller
             -> where('id', $postId)
             -> delete();
 
-        if ($rows_deleted > 0)
+        // cancello la ricorrenza nel db MongoDB
+        $images_assoc = Image::query()
+            -> where('postId', strval($postId))
+            -> value('images');
+
+        //elimino i file
+        foreach ($images_assoc as $path_to_remove)
+            unlink($path_to_remove);
+
+        //elimino da MongoDB
+        $images_deleted = Image::query()
+            -> where('postId', strval($postId))
+            -> delete();
+
+        if ($rows_deleted > 0 && $images_deleted > 0)
             //post eliminato correttamente
             return array('deleted' => 'TRUE', 'postId' => $postId);
         else

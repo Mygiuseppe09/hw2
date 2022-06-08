@@ -24,10 +24,19 @@
 
         <div id="formOutputContainer">
 
-            <form action="" id="newPostForm">
+            <form action="" id="newPostForm" >
                 <h2>DOVE SEI STATO?</h2>
                 <label for="inNewPostPlace"><input placeholder="es: Rome" type="text" name="place" id="inNewPostPlace"></label>
                 <input id="submitButton" class="button" type="submit" value="CERCA">
+            </form>
+
+            <form action="/save_images" method="POST" enctype="multipart/form-data" name="upload">
+                {{ csrf_field() }}
+                <label class="hidden" id="imageLabel" for="imagesInput"> SELEZIONA LE IMMAGINI
+                    <input type='file' name="images[]" id="imagesInput" accept='image/*' multiple>
+                </label>
+                <input id="submit" class="button hidden" type="submit" value="PUBBLICA">
+                <input type="text" class="hidden" value="" name="postId" id="postIdtToServer">
             </form>
 
             @include('loader')
@@ -36,7 +45,7 @@
 
             <div id="outputPlaces" class="hidden"> <!-- da generare dinamicamente --> </div>
 
-            <div id="isPostedFeedback" class="hidden"></div>
+            <!--  <div id="isPostedFeedback" class="hidden"></div> -->
 
             <div id="API_attribution" class="">
                 Powered by

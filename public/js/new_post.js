@@ -33,36 +33,33 @@ function callAPI(event) {
 /********************************** PROMISE'S HANDLERS ******************************/
 
 function storeThePost2(json) {
-    // qui arriva il json BOOLEANO: post_caricato = VERO o post_caricato = FALSO
     if (json.is_post_stored === 'TRUE') {
         // nascondiamo le città mostrate precedentemente
         document.querySelector('#placesResults').classList.add('hidden');
         document.querySelector('#outputPlaces').classList.add('hidden');
 
-        // mostriamo il div di status SUCCESS
-        const div = document.querySelector('#isPostedFeedback');
-        div.classList.remove('hidden');
-        div.classList.remove('error');
-        div.classList.add('success');
-        div.innerText = "POST UPLOADATO CON SUCCESSO";
+        // mostriamo il pulsante per aggiungere le immagini
+        document.querySelector('#inNewPostPlace').classList.add('hidden');
+        document.querySelector('#submitButton').classList.add('hidden');
+        document.querySelector('#newPostForm h2').classList.add('hidden');
+        document.querySelector('#API_attribution').classList.add('hidden');
+        document.querySelector('#imageLabel').classList.remove('hidden');
 
-        //reindirizziamo l'utente alla home
-        setTimeout(() => {
-            window.location.href = "/home";
-        }, 2000);
+        // non appena l'utente seleziona le immagini...
+        document.querySelector('#imagesInput').addEventListener('change',
+            () => {
+            // spediamo il postId al Server
+            document.querySelector('#postIdtToServer').value = json.postId;
 
-    }
-    else {
-        // nascondiamo le città mostrate precedentemente
-        document.querySelector('#placesResults').classList.add('hidden');
-        document.querySelector('#outputPlaces').classList.add('hidden');
+            // nascondiamo tutto il resto
+            document.querySelector('#imageLabel').classList.add('hidden');
+            document.querySelector('#API_attribution').classList.add('hidden');
+            document.querySelector('h2').classList.add('hidden');
 
-        // mostriamo il div di status ERROR
-        const div = document.querySelector('#isPostedFeedback');
-        div.classList.remove('hidden');
-        div.classList.remove('success');
-        div.classList.add('error');
-        div.innerText = "SI E' VERIFICATO UN ERRORE";
+            // mostriamo solo il tasto 'pubblica'
+            const submit = document.querySelector('#submit');
+            submit.classList.remove('hidden');
+        });
     }
 }
 

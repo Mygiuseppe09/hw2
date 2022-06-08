@@ -1,23 +1,10 @@
+body {
+    margin: 0;
+}
+
 .feed h1 {
     color: black;
 }
-
-.feed__posts {
-    padding: revert;
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-}
-
-.post {
-    margin: 5px;
-    flex: 1 1 130px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
 
 .delete_posts {
     background-color: black;
@@ -42,6 +29,7 @@
   }
 
   #deletePostButton {
+      display: block;
       text-align: center;
       background-color: red;
       font-size: 15px;
@@ -60,4 +48,8 @@ div.deleteFeedback {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+footer {
+    margin-top: 60px;
 }

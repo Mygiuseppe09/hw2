@@ -54,7 +54,7 @@ form {
 
 
 /* tasto invio */
-#submitButton {
+#submitButton, #submit {
     width: 150px;
     height: 40px;
     font-size: 20px;
@@ -116,3 +116,18 @@ img {
     text-align: center;
     padding-top: 40px;
 }
+
+#imageLabel {
+
+    margin: 0 auto;
+    background-color: rgba(0, 128, 0, 0.5);
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+#imagesInput {
+    display: none;
+}
+
+
