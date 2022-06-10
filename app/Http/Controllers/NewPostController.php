@@ -81,26 +81,29 @@ class NewPostController extends Controller
          *********************************************************************************************/
         /* @var Image $new_item_in_collection */
 
-        $new_item_in_collection = Image::query() -> create([
+        if($new_item_in_collection = Image::query() -> create([
             'postId' => request('postId'),
             'images' => array()
-        ]);
+        ])) {
+            $target_files = array();
+            $x = 0;
 
-        $target_files = array();
-        $x = 0;
+            foreach ($_FILES['images']['name'] as $image_name)
+                $target_files[] = 'post_images/' . basename($image_name);
 
-        foreach ($_FILES['images']['name'] as $image_name)
-            $target_files[] = 'post_images/' . basename($image_name);
+            foreach ($_FILES['images']['tmp_name'] as $image_old_path) {
+                move_uploaded_file($image_old_path, $target_files[$x]);
+                $x++;
+            }
 
-        foreach ($_FILES['images']['tmp_name'] as $image_old_path) {
-            move_uploaded_file($image_old_path, $target_files[$x]);
-            $x++;
+            $new_item_in_collection -> images = $target_files;
+            $new_item_in_collection -> save();
+
+            return redirect('/home');
         }
-
-        $new_item_in_collection -> images = $target_files;
-        $new_item_in_collection -> save();
-
-        return redirect('/home');
+        else return redirect('/new_post');
     }
+
+
 
 }

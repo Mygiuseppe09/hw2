@@ -203,16 +203,29 @@ function onPostsJson(json) {
             // sezione relativa alle immagini allegate ai post
             const imagesContainer = document.createElement('div');
             imagesContainer.classList.add('post_images');
-            for (let image_url of post.images_urls) {
-                const imageContainer = document.createElement('div');
-                imageContainer.classList.add('image_container');
-                const image = document.createElement('img');
-                image.classList.add('image');
-                image.src = image_url;
+            console.log(post.images_urls);
+            if (post.images_urls != null) {
+                for (let image_url of post.images_urls) {
+                    const imageContainer = document.createElement('div');
+                    imageContainer.classList.add('image_container');
+                    const image = document.createElement('img');
+                    image.classList.add('image');
+                    image.src = image_url;
 
-                imageContainer.appendChild(image);
-                imagesContainer.appendChild(imageContainer);
+                    imageContainer.appendChild(image);
+                    imagesContainer.appendChild(imageContainer);
+                }for (let image_url of post.images_urls) {
+                    const imageContainer = document.createElement('div');
+                    imageContainer.classList.add('image_container');
+                    const image = document.createElement('img');
+                    image.classList.add('image');
+                    image.src = image_url;
+
+                    imageContainer.appendChild(image);
+                    imagesContainer.appendChild(imageContainer);
+                }
             }
+
 
             const likeButtonContainer = document.createElement('div');
             likeButtonContainer.classList.add('icon_container');
