@@ -61,6 +61,13 @@ a {text-decoration: none;}
     object-fit: cover;
 }
 
+.center_internal_items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .nav_container {
     display: flex;
     justify-content: space-around;
@@ -124,11 +131,6 @@ div.error {
     justify-content: space-between;
     margin: 50px auto;
 }
-.loader span {
-    font-size: 22px;
-    text-transform: uppercase;
-    margin: auto;
-}
 .ball {
     width: 25px;
     height: 25px;
@@ -142,6 +144,7 @@ div.error {
 .ball:nth-child(3) {
     animation-delay: .32s;
 }
+
 @keyframes bounce {
     from {
         transform: scaleX(1.25);
@@ -149,6 +152,12 @@ div.error {
     to {
         transform: translateY(-50px) scaleX(1);
     }
+}
+
+.loader span {
+    font-size: 22px;
+    text-transform: uppercase;
+    margin: auto;
 }
 
 .text_align_center {

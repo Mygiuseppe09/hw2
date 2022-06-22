@@ -24,7 +24,7 @@
 
         <div id="formOutputContainer">
 
-            <form action="" id="newPostForm" >
+            <form action="" id="newPostForm" name="new_post_form">
                 <h2>DOVE SEI STATO?</h2>
                 <label for="inNewPostPlace"><input placeholder="es: Rome" type="text" name="place" id="inNewPostPlace"></label>
                 <input id="submitButton" class="button" type="submit" value="CERCA">

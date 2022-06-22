@@ -42,6 +42,7 @@ class NewPostController extends Controller
             {
                 $postId = Post::query() -> where('user', session('username'))
                     -> where('place', $place_id)
+                    -> orderBy('time', 'desc')
                     -> value('id');
                 return array('is_post_stored' => 'TRUE', 'postId' => $postId);
             }
@@ -85,11 +86,14 @@ class NewPostController extends Controller
             'postId' => request('postId'),
             'images' => array()
         ])) {
+
             $target_files = array();
             $x = 0;
 
-            foreach ($_FILES['images']['name'] as $image_name)
-                $target_files[] = 'post_images/' . basename($image_name);
+            foreach ($_FILES['images']['name'] as $image_name) {
+                $uniqueId = uniqid();
+                $target_files[] = 'post_images/' . $uniqueId . basename($image_name);
+            }
 
             foreach ($_FILES['images']['tmp_name'] as $image_old_path) {
                 move_uploaded_file($image_old_path, $target_files[$x]);

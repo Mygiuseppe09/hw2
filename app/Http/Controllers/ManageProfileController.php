@@ -60,11 +60,10 @@ class ManageProfileController extends Controller
             -> where('id', $postId)
             -> delete();
 
-        // cancello la ricorrenza nel db MongoDB
+        // recupero la lista delle immagini associate al posto
         $images_assoc = Image::query()
             -> where('postId', strval($postId))
             -> value('images');
-
         //elimino i file
         foreach ($images_assoc as $path_to_remove)
             unlink($path_to_remove);

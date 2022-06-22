@@ -68,7 +68,8 @@ function onDeletePostJson(json) {
     if (json.deleted === 'TRUE') {
         //post eliminato
         const successText = document.createElement('h2');
-        successText.innerText = 'Il post con id ' + '"' + json.postId + '"' + ' è stato eliminato con successo';
+        successText.innerText = 'post eliminato con successo';
+        console.log("id del post eliminato: " + json.postId)
 
         document.querySelector('.deleteFeedback').classList.remove('hidden');
         document.querySelector('.deleteFeedback').classList.remove('error');
@@ -130,15 +131,17 @@ function onPostsJson(json) {
             // sezione relativa alle immagini allegate ai post
             const imagesContainer = document.createElement('div');
             imagesContainer.classList.add('post_images');
-            for (let image_url of post.images_urls) {
-                const imageContainer = document.createElement('div');
-                imageContainer.classList.add('image_container');
-                const image = document.createElement('img');
-                image.classList.add('image');
-                image.src = image_url;
+            if (post.images_urls != null) {
+                for (let image_url of post.images_urls) {
+                    const imageContainer = document.createElement('div');
+                    imageContainer.classList.add('image_container');
+                    const image = document.createElement('img');
+                    image.classList.add('image');
+                    image.src = image_url;
 
-                imageContainer.appendChild(image);
-                imagesContainer.appendChild(imageContainer);
+                    imageContainer.appendChild(image);
+                    imagesContainer.appendChild(imageContainer);
+                }
             }
 
             // elimina posts
@@ -152,8 +155,15 @@ function onPostsJson(json) {
 
             const infoPostContainer = document.createElement('div');
             infoPostContainer.classList.add('post__informations');
+
             const dateText = document.createElement('p');
-            dateText.innerText = post.time;
+            // sistemiamo l'ora e il giorno
+            const dateArray = post.time.split("-");
+            const day = dateArray[2].split(" "); //in day[0] abbiamo il giorno
+            // in day[1] abbiamo l'ora (anche i secondi)
+            const hour = day[1].split(":");
+            dateText.innerText = day[0] + "/" + dateArray[1] + "/" + dateArray[0] + " alle " + hour[0] + ":" + hour[1];
+
             const numberLikesText = document.createElement('p');
             numberLikesText.classList.add('likes_counter');
             numberLikesText.innerText = 'likes: ' + post.nlikes;

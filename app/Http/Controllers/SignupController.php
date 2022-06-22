@@ -65,10 +65,13 @@ class SignupController extends Controller
                      session(['username' => $request['username']]);
                      return redirect('home');
                  }
+                 else {
+                     // ci sono stati problemi durante la comunicazione col db
+                     $errors[] = "problemi durante il salvataggio nel DB";
+                     return redirect('signup') -> withErrors($errors);
+                 }
             }
             else {
-                // ci sono stati problemi durante le validazioni
-                $errors[] = "problemi durante il salvataggio nel DB";
                 return redirect('signup') -> withErrors($errors);
             }
         }

@@ -19,6 +19,7 @@
         <div class="overlay"></div>
         <div class="on_video">
             <h1> TripBook </h1>
+            <h2> Il social per chi ama viaggare </h2>
         </div>
         <video autoplay muted loop>
             <source src="{{asset('videos/index_video_background.mp4')}}" type="video/mp4"/>

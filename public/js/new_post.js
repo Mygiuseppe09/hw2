@@ -49,6 +49,7 @@ function storeThePost2(json) {
         document.querySelector('#imagesInput').addEventListener('change',
             () => {
             // spediamo il postId al Server
+                console.log(json.postId);
             document.querySelector('#postIdtToServer').value = json.postId;
 
             // nascondiamo tutto il resto

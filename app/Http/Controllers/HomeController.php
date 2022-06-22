@@ -73,9 +73,10 @@ class HomeController extends Controller
         /** @var User $logged_user */
 
         $logged_user = User::query() -> where('username', session('username')) -> first();
-        $num_luoghi_visitati = $logged_user -> visits() -> distinct() -> count('place');
 
+        $num_luoghi_visitati = $logged_user -> visits() -> distinct() -> count('place');
         $logged_user -> nplaces = $num_luoghi_visitati;
+
         return $logged_user;
     }
 
@@ -128,19 +129,18 @@ class HomeController extends Controller
         /**********************************************************************************************
                 RITORNA I PRIMI 10 POST PRESENTI NEL DB (DAL PIU' RECENTE AL MENO RECENTE)
                 n.b. Ritorna anche:
+                - gli url delle immagini associate al posto, prese dal db MongoDB
                 - il nome del luogo associato al corrispondente ID
                 - il sesso associato all'utente che l'ha postato (per stabilire l'avatar)
-                - gli url delle immagini associate, prese dal db MongoDB
          *********************************************************************************************/
         /** @var Post $posts */
 
         $posts_plus = array();
 
         $posts = Post::query() -> limit(10) -> orderBy('time','desc') -> get();
-
-
         if ($posts -> isNotEmpty())
             // ci sono posts nel db
+
             foreach ($posts as $post) {
                 $images_urls = Image::query()
                     -> where('postId', strval($post -> id))
@@ -149,12 +149,13 @@ class HomeController extends Controller
                 $place_name = $post -> places() -> value('name');
                 $user_gender = $post -> users() -> value('gender');
 
-                // aggiungiamo i nuovi campi
-                $post -> images_urls = $images_urls;
-                $post -> name_place = $place_name;
-                $post -> user_gender = $user_gender;
-                $posts_plus[] = $post;
+                    // aggiungiamo i nuovi campi
+                    $post -> images_urls = $images_urls;
+                    $post -> name_place = $place_name;
+                    $post -> user_gender = $user_gender;
+                    $posts_plus[] = $post;
             }
+
         return $posts_plus;
     }
 
